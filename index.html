@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Counter - The Hideout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #ffffff;
+            text-align: center;
+        }
+        header {
+            background-color: #1a1a1a;
+            padding: 20px;
+        }
+        header img {
+            max-width: 200px;
+            height: auto;
+        }
+        textarea {
+            width: 90%;
+            height: 150px;
+            margin: 20px auto;
+            font-size: 16px;
+            color: #000;
+            background-color: #ffffff;
+            border: 2px solid #007bff;
+            border-radius: 8px;
+            padding: 10px;
+            display: block;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #ffffff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .word-count {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="The Hideout Roleplay Logo">
+        <h1>Word Counter</h1>
+        <p>Word counter used for our WL applications</p>
+    </header>
+    <main>
+        <textarea id="textInput" placeholder="Type or paste text here..."></textarea>
+        <button onclick="countWords()">Count Words</button>
+        <p class="word-count" id="wordCount">Word Count: 0</p>
+    </main>
+    <script>
+        function countWords() {
+            const text = document.getElementById('textInput').value;
+            const words = text.trim().split(/\s+/).filter(word => word.length > 0);
+            document.getElementById('wordCount').textContent = `Word Count: ${words.length}`;
+        }
+    </script>
+</body>
+</html>
